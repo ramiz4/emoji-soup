@@ -23,8 +23,9 @@
     "concurrently": "^7.6.0",
     "eslint": "^8.57.0",
     "live-server": "^1.2.2",
-    "tailwindcss": "^4.1.12",
     "prettier": "^3.2.5",
-    "terser": "^5.16.0"
+    "tailwindcss": "^4.1.12",
+    "terser": "^5.16.0",
+    "tester": "^2.0.0"
   }
 }
