@@ -25,7 +25,6 @@
     "live-server": "^1.2.2",
     "prettier": "^3.2.5",
     "tailwindcss": "^4.1.12",
-    "terser": "^5.16.0",
-    "tester": "^2.0.0"
+    "terser": "^5.43.1"
   }
 }
