@@ -9,9 +9,9 @@
     "tailwindcss:dev": "npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch",
     "tailwindcss": "npx @tailwindcss/cli -i ./src/input.css -o ./dist/output.css --minify",
     "build": "rm -rf dist && mkdir -p dist && pnpm tailwindcss && npx terser ./src/script.js -o ./dist/script.js --compress --mangle && cp ./src/index.html ./dist/index.html && cp ./src/favicon.png ./dist/favicon.png",
-    "preview": "live-server dist --port=5173",
     "format": "prettier --write \"**/*.{js,html,css}\"",
-    "lint": "eslint . --ext .js --fix",
+    "lint": "eslint . --ext .js",
+    "lint:fix": "eslint . --ext .js --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
