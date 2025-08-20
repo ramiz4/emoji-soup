@@ -35,3 +35,7 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Show deployed URL
+        run: |
+          echo "Your site should be available at: ${{ steps.deployment.outputs.page_url }}"
