@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emoji Soup</title>
+    <meta
+      name="description"
+      content="Hide messages inside emoji soup using a shared key. Only people with the key can decrypt — all in your browser, no servers."
+    />
+    <meta property="og:title" content="Emoji Soup" />
+    <meta
+      property="og:description"
+      content="Encrypt a message to emoji soup with a key. Share the soup. Decrypt with the same key. No servers, just vibes."
+    />
+    <link rel="icon" href="favicon.png" type="image/png" />
+    <link rel="stylesheet" href="output.css" />
+  </head>
+  <body class="bg-[#0e1222] text-white">
+    <header class="py-9 px-4 text-center">
+      <h1 class="m-0 text-3xl md:text-5xl font-bold">Emoji Soup</h1>
+      <div class="mt-2 text-gray-400">
+        Hide a message inside emoji soup using a shared key. No servers. All in your browser.
+      </div>
+    </header>
+    <main class="max-w-3xl mx-auto px-4 pb-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <section
+          class="bg-gradient-to-b from-[#181c2f] to-[#131728] border border-[#232840] rounded-xl p-4 shadow-xl"
+          aria-labelledby="enc-title"
+        >
+          <h2 id="enc-title" class="mt-1 mb-2 text-lg font-semibold tracking-wide">
+            🔐 Encrypt → Emoji Soup
+          </h2>
+          <form
+            id="encrypt-form"
+            onsubmit="event.preventDefault(); document.getElementById('btn-encrypt').click();"
+          >
+            <label for="enc-msg" class="block text-xs text-gray-400 mb-1">Message</label>
+            <textarea
+              id="enc-msg"
+              placeholder="Type your secret message here…"
+              class="w-full p-3 rounded-lg border border-[#232840] bg-[#0e1222] text-white text-sm resize-vertical min-h-[120px] mb-2"
+            ></textarea>
+            <div class="flex gap-2 flex-wrap items-center mb-2">
+              <div class="flex-1">
+                <label for="enc-key" class="block text-xs text-gray-400 mb-1">Key / Password</label>
+                <input
+                  type="text"
+                  name="username"
+                  autocomplete="username"
+                  class="hidden"
+                  tabindex="-1"
+                  aria-hidden="true"
+                />
+                <input
+                  id="enc-key"
+                  type="password"
+                  placeholder="Pick a key only your friend knows"
+                  class="w-full p-3 rounded-lg border border-[#232840] bg-[#0e1222] text-white text-sm"
+                  autocomplete="new-password"
+                />
+              </div>
+              <div class="min-w-[120px] flex flex-col justify-end">
+                <label class="invisible">&nbsp;</label>
+                <button
+                  id="btn-encrypt"
+                  class="bg-gradient-to-r from-indigo-400 to-indigo-700 border border-white/20 text-white rounded-lg px-4 py-2 font-semibold"
+                  type="submit"
+                >
+                  Encrypt
+                </button>
+              </div>
+            </div>
+            <div class="h-px bg-[#232840] my-3"></div>
+            <label class="block text-xs text-gray-400 mb-1">Emoji Soup (share this)</label>
+            <div
+              id="enc-out"
+              class="bg-[#0c0f1c] min-h-[140px] p-3 border border-dashed border-[#2a2f4d] rounded-lg text-lg leading-tight break-words whitespace-pre-wrap mb-2"
+              aria-live="polite"
+            ></div>
+            <div class="flex gap-2 flex-wrap items-center mt-1 mb-2">
+              <button
+                id="copy-soup"
+                class="border border-[#232840] bg-[#0e1222] text-white px-3 py-2 rounded-lg"
+                type="button"
+              >
+                Copy Soup
+              </button>
+              <button
+                id="share-soup"
+                class="border border-[#232840] bg-[#0e1222] text-white px-3 py-2 rounded-lg"
+                type="button"
+              >
+                Share Soup
+              </button>
+              <button
+                id="link-soup"
+                class="border border-[#232840] bg-[#0e1222] text-white px-3 py-2 rounded-lg"
+                type="button"
+              >
+                Copy Link
+              </button>
+              <span class="text-xs text-gray-400"
+                >Format: space-separated emojis for reliable copy/paste.</span
+              >
+            </div>
+            <div class="mt-1 text-xs text-gray-400">
+              Tip: Only someone with the <b>same key</b> can decrypt the soup.
+            </div>
+          </form>
+        </section>
+
+        <section
+          class="bg-gradient-to-b from-[#181c2f] to-[#131728] border border-[#232840] rounded-xl p-4 shadow-xl"
+          aria-labelledby="dec-title"
+        >
+          <h2 id="dec-title" class="mt-1 mb-2 text-lg font-semibold tracking-wide">
+            🧩 Decrypt ← Emoji Soup
+          </h2>
+          <form
+            id="decrypt-form"
+            onsubmit="event.preventDefault(); document.getElementById('btn-decrypt').click();"
+          >
+            <label for="dec-soup" class="block text-xs text-gray-400 mb-1">Emoji Soup</label>
+            <textarea
+              id="dec-soup"
+              placeholder="Paste the emoji soup here (with spaces)"
+              class="w-full p-3 rounded-lg border border-[#232840] bg-[#0e1222] text-white text-sm resize-vertical min-h-[120px] mb-2"
+            ></textarea>
+            <div class="flex gap-2 flex-wrap items-center mb-2">
+              <div class="flex-1">
+                <label for="dec-key" class="block text-xs text-gray-400 mb-1">Key / Password</label>
+                <input
+                  type="text"
+                  name="username"
+                  autocomplete="username"
+                  class="hidden"
+                  tabindex="-1"
+                  aria-hidden="true"
+                />
+                <input
+                  id="dec-key"
+                  type="password"
+                  placeholder="Enter the shared key"
+                  class="w-full p-3 rounded-lg border border-[#232840] bg-[#0e1222] text-white text-sm"
+                  autocomplete="new-password"
+                />
+              </div>
+              <div class="min-w-[120px] flex flex-col justify-end">
+                <label class="invisible">&nbsp;</label>
+                <button
+                  id="btn-decrypt"
+                  class="bg-gradient-to-r from-indigo-400 to-indigo-700 border border-white/20 text-white rounded-lg px-4 py-2 font-semibold"
+                  type="submit"
+                >
+                  Decrypt
+                </button>
+              </div>
+            </div>
+            <div class="h-px bg-[#232840] my-3"></div>
+            <label class="block text-xs text-gray-400 mb-1">Plain Text</label>
+            <div
+              id="dec-out"
+              class="bg-[#0c0f1c] min-h-[140px] p-3 border border-dashed border-[#2a2f4d] rounded-lg text-lg leading-tight break-words whitespace-pre-wrap mb-2"
+              aria-live="polite"
+            ></div>
+            <div class="flex flex-wrap gap-2 mt-1 mb-2">
+              <span
+                class="inline-block text-xs px-2 py-1 border border-[#232840] rounded-full text-gray-400"
+                >AES‑GCM 256‑bit</span
+              >
+              <span
+                class="inline-block text-xs px-2 py-1 border border-[#232840] rounded-full text-gray-400"
+                >PBKDF2‑SHA256</span
+              >
+              <span
+                class="inline-block text-xs px-2 py-1 border border-[#232840] rounded-full text-gray-400"
+                >Salt + IV included</span
+              >
+              <span
+                class="inline-block text-xs px-2 py-1 border border-[#232840] rounded-full text-gray-400"
+                >All client‑side</span
+              >
+            </div>
+            <div class="mt-1 text-xs text-gray-400">
+              Note: Fun toy for friends — not audited security. Don’t use for real secrets.
+            </div>
+          </form>
+        </section>
+      </div>
+      <div class="h-px bg-[#232840] my-7"></div>
+      <section
+        class="bg-gradient-to-b from-[#181c2f] to-[#131728] border border-[#232840] rounded-xl p-4 shadow-xl"
+      >
+        <h2 class="mt-1 mb-2 text-lg font-semibold tracking-wide">How it works (short version)</h2>
+        <p class="text-gray-400 text-sm">
+          Your password derives a key (PBKDF2 with salt). We encrypt your text with AES‑GCM (random
+          IV). We bundle version + salt + IV + ciphertext, encode to Base64, then map each Base64
+          character to an emoji. To decrypt, we reverse the mapping and use the same password.
+        </p>
+        <p class="text-gray-400 text-sm">
+          Because everything happens in your browser, we never see your message or key.
+        </p>
+      </section>
+    </main>
+
+    <footer class="text-center text-gray-400 py-6">Made for laughs — share responsibly. 🥳</footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

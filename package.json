@@ -1,0 +1,30 @@
+{
+  "name": "emoji-soup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "pnpm exec concurrently \"pnpm tailwindcss:dev\" \"live-server src --watch=src/index.html,src/script.js,src/output.css,src/*.html --port=5173\"",
+    "start": "pnpm run build && live-server dist --port=8080",
+    "tailwindcss:dev": "npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch",
+    "tailwindcss": "npx @tailwindcss/cli -i ./src/input.css -o ./dist/output.css --minify",
+    "build": "rm -rf dist && mkdir -p dist && pnpm tailwindcss && npx terser ./src/script.js -o ./dist/script.js --compress --mangle && cp ./src/index.html ./dist/index.html && cp ./src/favicon.png ./dist/favicon.png",
+    "preview": "live-server dist --port=5173",
+    "format": "prettier --write \"**/*.{js,html,css}\"",
+    "lint": "eslint . --ext .js --fix",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.13.1",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.12",
+    "concurrently": "^7.6.0",
+    "eslint": "^8.57.0",
+    "live-server": "^1.2.2",
+    "tailwindcss": "^4.1.12",
+    "prettier": "^3.2.5",
+    "terser": "^5.16.0"
+  }
+}
