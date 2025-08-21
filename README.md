@@ -2,7 +2,7 @@
 
 Emoji Soup is a fun web application that lets you play with and explore emojis in a creative way. This project is built using HTML, CSS, and JavaScript.
 
-![Emoji Soup Screenshot](docs/emoji-soup-demo.png)
+[Live Demo](https://ramiz4.github.io/emoji-soup/)
 
 ---
 
