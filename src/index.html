@@ -15,6 +15,12 @@
     />
     <link rel="icon" href="favicon.png" type="image/png" />
     <link rel="stylesheet" href="output.css" />
+    <!-- Google AdSense: Replace ca-pub-xxxxxxxxxxxxxxxx with your own publisher ID -->
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-xxxxxxxxxxxxxxxx"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body class="bg-[#0e1222] text-white">
     <header class="py-9 px-4 text-center">
@@ -189,6 +195,24 @@
           </form>
         </section>
       </div>
+      <div class="my-6 flex justify-center">
+        <!-- Google AdSense Responsive Ad Unit: Replace data-ad-client and data-ad-slot with your own -->
+        <ins
+          class="adsbygoogle"
+          style="display: block; min-width: 320px; min-height: 100px; width: 100%; max-width: 728px"
+          data-ad-client="ca-pub-xxxxxxxxxxxxxxxx"
+          data-ad-slot="1234567890"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        ></ins>
+      </div>
+      <script>
+        window.addEventListener('DOMContentLoaded', function () {
+          if (window.adsbygoogle && document.querySelector('.adsbygoogle')) {
+            ;(adsbygoogle = window.adsbygoogle || []).push({})
+          }
+        })
+      </script>
       <div class="h-px bg-[#232840] my-7"></div>
       <section
         class="bg-gradient-to-b from-[#181c2f] to-[#131728] border border-[#232840] rounded-xl p-4 shadow-xl"
@@ -205,7 +229,41 @@
       </section>
     </main>
 
-    <footer class="text-center text-gray-400 py-6">Made for laughs — share responsibly. 🥳</footer>
+    <footer class="text-center text-gray-400 py-6">
+      <div class="mb-3 flex flex-row items-center justify-center gap-2">
+        <a
+          href="https://www.buymeacoffee.com/yourusername"
+          target="_blank"
+          rel="noopener"
+          class="inline-block bg-yellow-100 hover:bg-yellow-200 text-yellow-900 font-medium px-3 py-1 rounded transition text-sm border border-yellow-200"
+          >☕ Buy Me a Coffee</a
+        >
+        <form
+          action="https://www.paypal.com/donate"
+          method="post"
+          target="_blank"
+          class="inline-block m-0 p-0"
+        >
+          <input type="hidden" name="business" value="your-paypal@email.com" />
+          <input type="hidden" name="no_recurring" value="0" />
+          <input type="hidden" name="currency_code" value="USD" />
+          <button
+            type="submit"
+            class="inline-block bg-blue-100 hover:bg-blue-200 text-blue-900 font-medium px-3 py-1 rounded transition text-sm border border-blue-200"
+          >
+            💙 PayPal
+          </button>
+        </form>
+        <a
+          href="https://www.twint.ch/en/donate/your-twint-id"
+          target="_blank"
+          rel="noopener"
+          class="inline-block bg-green-100 hover:bg-green-200 text-green-900 font-medium px-3 py-1 rounded transition text-sm border border-green-200"
+          >🇨🇭 TWINT</a
+        >
+      </div>
+      Made for laughs — share responsibly. 🥳
+    </footer>
 
     <script src="script.js"></script>
   </body>
